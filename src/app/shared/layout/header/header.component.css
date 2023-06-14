@@ -1,0 +1,19 @@
+.header {
+    border-top: 5px solid #1592bf;
+    width: 100%;
+    float: left;
+}
+.nav {
+    width: 100%;
+    float: left;
+    background: #c0392b;
+}
+
+.nav li a.active {
+    background: #e74c3c;
+    text-decoration: none;
+}
+@media (min-width: 1200px){}
+.container {
+    max-width: 1170px;
+}

@@ -1,0 +1,57 @@
+You can add global styles to this file, and also import other style files
+body{
+    background: #E8D426 !important;
+    font-family: 'Muli', sans-serif;
+    
+  }
+  h1{
+    color: #fff;
+    padding-bottom: 2rem;
+    font-weight: bold;
+  }
+  .card{
+    margin-top: 158px !important;
+  }
+  a{
+    color: #333;
+  }
+  a:hover{
+    color: #E8D426;
+    text-decoration: none;
+  }
+  .form-control:focus {
+  
+      color: #000;
+      background-color: #fff;
+      border:2px solid #E8D426;
+      outline: 0;
+      box-shadow: none;
+  
+  }
+  
+  .btn{
+    background: #E8D426;
+    border: #E8D426;
+  }
+  .btn:hover {
+    background: #E8D426;
+    border: #E8D426;
+  }
+
+  .btn {
+    background: red;
+    border: red;
+    width: 116px;
+    margin-left: 107px;
+}
+img{
+    width: 370px;
+    height: 149px;
+}
+.form_css{
+    margin-top: 25px;
+}
+.error-message {
+    color: red;
+    font-size: 12px;
+  }

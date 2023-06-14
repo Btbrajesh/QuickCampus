@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="card m-5 p-3">
+        <div class="card-body">
+            <table class="table table-bordered table-striped table-hover" datatable  [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+                <thead>
+                <tr>
+                    <th>Aplicant Name</th>
+                    <th>College Name </th>
+                    <th>Email Address</th>
+                    <th>Highest Qualification</th>
+                    <th>Phone number</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let user of userData">
+                <td>{{ user.name }}</td>
+                <td>{{ user.collegeName }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.highestQualification }}</td>
+                <td>{{ user.phone }}</td>
+               <td> 
+                <a (click)="editUser(user)" class="action-link"><i class="fa fa-edit"></i></a>
+                <a (click)="toggleActive(user)" [ngClass]="{ 'active-link': user.isActive, 'inactive-link': !user.isActive }">{{ user.isActive ? 'Active' : 'Inactive' }}</a>
+              </td>
+           
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>

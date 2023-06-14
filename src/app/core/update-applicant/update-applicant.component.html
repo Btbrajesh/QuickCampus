@@ -1,0 +1,140 @@
+
+<div class="content-wrapper">
+    <section class="content-header">
+        <h3>
+            To be filled by applicant <i class="fa fa-pencil"></i>
+        </h3>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12 custom_css">
+                        <form [formGroup]="applicantForm" (ngSubmit)="submitForm()">
+                            <!-- First Name -->
+                            <div class="mb-4 row">
+                                <label class="control-label col-md-1 padd_none"><strong>First  Name*</strong></label>
+                                <div class="col-md-3">
+                                    <input class="form-control" formControlName="firstName" placeholder="First Name*">
+                                    <span class="field-validation-valid"
+                                        *ngIf="applicantForm.get('firstName')?.invalid && (applicantForm.get('firstName')?.dirty || applicantForm.get('firstName')?.touched)">
+                                        First Name is required.
+                                    </span>
+                                </div>
+                                <label class="control-label col-md-1 padd_none"><strong>Last  Name*</strong></label>
+                                <div class="col-md-3">
+                                    <input class="form-control" formControlName="lastName" placeholder="Last Name">
+                                </div>
+                            </div>
+
+                            <!-- Email Address -->
+                            <div class="mb-4 row">
+                                <label class="control-label col-md-1 padd_none"><strong>Email Address*</strong></label>
+                                <div class="col-md-3">
+                                    <input class="form-control" formControlName="emailAddress"
+                                        placeholder="Email Address*">
+                                    <span class="field-validation-valid"
+                                        *ngIf="applicantForm.get('emailAddress')?.invalid && (applicantForm.get('emailAddress')?.dirty || applicantForm.get('emailAddress')?.touched)">
+                                        <span *ngIf="applicantForm.get('emailAddress')?.errors?.['required']">Email Address
+                                            is required.</span>
+                                        <span *ngIf="applicantForm.get('emailAddress')?.errors?.['email']">Not a valid email
+                                            address.</span>
+                                    </span>
+                                </div>
+                                <label class="control-label col-md-1 padd_none"><strong>Phone Number*</strong></label>
+                                <div class="col-md-3">
+                                    <input class="form-control" formControlName="phoneNumber"
+                                        placeholder="Phone Number*">
+                                    <span class="field-validation-valid"
+                                        *ngIf="applicantForm.get('phoneNumber')?.invalid && (applicantForm.get('phoneNumber')?.dirty || applicantForm.get('phoneNumber')?.touched)">
+                                        Phone Number is required.
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Highest Qualification -->
+                            <div class="mb-4 row">
+                                <label class="control-label col-md-1 padd_none"><strong>Highest Qualification*</strong></label>
+                                <div class="col-md-3">
+                                    <input class="form-control" formControlName="highestQualification"
+                                        placeholder="Highest Qualification*">
+                                    <span class="field-validation-valid"
+                                        *ngIf="applicantForm.get('highestQualification')?.invalid && (applicantForm.get('highestQualification')?.dirty || applicantForm.get('highestQualification')?.touched)">
+                                        Highest Qualification is required.
+                                    </span>
+                                </div>
+                                <label class="control-label col-md-1 padd_none"><strong>Highest Qualification
+                                    Percentage*</strong></label>
+                                <div class="col-md-3">
+                                    <input class="form-control" formControlName="highestQualificationPercentage"
+                                        placeholder="Highest Qualification Percentage*">
+                                    <span class="field-validation-valid"
+                                        *ngIf="applicantForm.get('highestQualificationPercentage')?.invalid && (applicantForm.get('highestQualificationPercentage')?.dirty || applicantForm.get('highestQualificationPercentage')?.touched)">
+                                        <span
+                                            *ngIf="applicantForm.get('highestQualificationPercentage')?.errors?.['required']">Percentage
+                                            is required.</span>
+                                        <span
+                                            *ngIf="applicantForm.get('highestQualificationPercentage')?.errors?.['min'] || applicantForm.get('highestQualificationPercentage')?.errors?.['max']">Percentage
+                                            should be in the range of 1 - 100.</span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Matric Percentage -->
+                            <div class="mb-4 row">
+                                <label class="control-label col-md-1 padd_none"><strong>Matric Percentage*</strong></label>
+                                <div class="col-md-3">
+                                    <input class="form-control" formControlName="matricPercentage"
+                                        placeholder="Matric Percentage*">
+                                    <span class="field-validation-valid"
+                                        *ngIf="applicantForm.get('matricPercentage')?.invalid && (applicantForm.get('matricPercentage')?.dirty || applicantForm.get('matricPercentage')?.touched)">
+                                        <span *ngIf="applicantForm.get('matricPercentage')?.errors?.['required']">Percentage
+                                            is required.</span>
+                                        <span
+                                            *ngIf="applicantForm.get('matricPercentage')?.errors?.['min'] || applicantForm.get('matricPercentage')?.errors?.['max']">Percentage
+                                            should be in the range of 1 - 100.</span>
+                                    </span>
+                                </div>
+                                <label class="control-label col-md-1 padd_none"><strong>Intermediate Percentage*</strong></label>
+                                <div class="col-md-3">
+                                    <input class="form-control" formControlName="intermediatePercentage"
+                                        placeholder="Intermediate Percentage*">
+                                        <span class="field-validation-valid" *ngIf="applicantForm.get('intermediatePercentage')?.invalid && (applicantForm.get('intermediatePercentage')?.dirty || applicantForm.get('intermediatePercentage')?.touched)">
+                                            <span *ngIf="applicantForm.get('intermediatePercentage')?.errors?.['required']">Percentage is required.</span>
+                                            <span *ngIf="applicantForm.get('intermediatePercentage')?.errors?.['min'] || applicantForm.get('intermediatePercentage')?.errors?.['max']">Percentage should be in the range of 1 - 100.</span>
+                                          </span>
+                                </div>
+                            </div>
+
+                            <!-- Best 3 Skills -->
+                            <div class="mb-4 row">
+                                <label class="control-label col-md-1 padd_none"><strong>Best 3 Skills</strong></label>
+                                <div class="col-md-3">
+                                    <textarea class="form-control" formControlName="skills"
+                                        placeholder="Best 3 Skills"></textarea>
+                                    <span class="field-validation-valid"
+                                        *ngIf="applicantForm.get('skills')?.invalid && (applicantForm.get('skills')?.dirty || applicantForm.get('skills')?.touched)">
+                                        Skills are required.
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Update and Cancel Buttons -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="col-md-3">
+                                            <button class="btn btn-danger" type="submit"
+                                                [disabled]="applicantForm.invalid">
+                                                <span>Update</span>
+                                            </button>
+                                            <a class="btn btn-default" href="/Admin/Applicant/Manage">Cancel</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+</section>
+</div>
+
+ 
