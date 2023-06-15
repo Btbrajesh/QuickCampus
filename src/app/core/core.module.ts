@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from '../shared/layout/header/header.component';
 import { FooterComponent } from '../shared/layout/footer/footer.component';
 import { SharedModule } from '../shared/shared.module';
+import { CollegeComponent } from './college/college.component';
 
 @NgModule({
     imports: [
@@ -25,7 +26,8 @@ import { SharedModule } from '../shared/shared.module';
     ],
     declarations: [
         ApplicantComponent,
-        UpdateApplicantComponent
+        UpdateApplicantComponent,
+        CollegeComponent
     ],
     exports: [
     ]

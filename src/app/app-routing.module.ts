@@ -8,6 +8,7 @@ import { FooterComponent } from './shared/layout/footer/footer.component';
 import { ApplicantComponent } from './core/applicant/applicant.component';
 import { UpdateApplicantComponent } from './core/update-applicant/update-applicant.component';
 import { SharedModule } from './shared/shared.module';
+import { CollegeComponent } from './core/college/college.component';
 
 const routes: Routes = [
   {
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path: 'header', component: HeaderComponent},
   {path: 'footer', component: FooterComponent},
   {path: 'applicant',component: ApplicantComponent},
-  {path : 'updateApplicant', component:UpdateApplicantComponent}
+  {path : 'updateApplicant', component:UpdateApplicantComponent},
+  {path: 'college',component:CollegeComponent}
   //{ path: '**', component: PageNotFoundComponent },
 ];
 
