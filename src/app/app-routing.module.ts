@@ -9,6 +9,7 @@ import { ApplicantComponent } from './core/applicant/applicant.component';
 import { UpdateApplicantComponent } from './core/update-applicant/update-applicant.component';
 import { SharedModule } from './shared/shared.module';
 import { CollegeComponent } from './core/college/college.component';
+import { AddCollegeComponent } from './core/add-college/add-college.component';
 
 const routes: Routes = [
   {
@@ -17,11 +18,10 @@ const routes: Routes = [
          { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },]
   },
   {path: 'dashboard', component: DashboardComponent},
-  {path: 'header', component: HeaderComponent},
-  {path: 'footer', component: FooterComponent},
   {path: 'applicant',component: ApplicantComponent},
   {path : 'updateApplicant', component:UpdateApplicantComponent},
-  {path: 'college',component:CollegeComponent}
+  {path: 'college',component:CollegeComponent},
+  {path : 'addCollege',component:AddCollegeComponent}
   //{ path: '**', component: PageNotFoundComponent },
 ];
 

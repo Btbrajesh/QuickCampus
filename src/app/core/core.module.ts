@@ -7,10 +7,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { UpdateApplicantComponent } from './update-applicant/update-applicant.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HeaderComponent } from '../shared/layout/header/header.component';
-import { FooterComponent } from '../shared/layout/footer/footer.component';
 import { SharedModule } from '../shared/shared.module';
 import { CollegeComponent } from './college/college.component';
+import { AddCollegeComponent } from './add-college/add-college.component';
 
 @NgModule({
     imports: [
@@ -18,7 +17,8 @@ import { CollegeComponent } from './college/college.component';
         DataTablesModule,
         HttpClientModule,
         FontAwesomeModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        SharedModule
     ],
 
     providers: [
@@ -27,7 +27,8 @@ import { CollegeComponent } from './college/college.component';
     declarations: [
         ApplicantComponent,
         UpdateApplicantComponent,
-        CollegeComponent
+        CollegeComponent,
+        AddCollegeComponent,
     ],
     exports: [
     ]

@@ -205,14 +205,10 @@ ngOnInit(): void {
     pagingType: 'full_numbers',
     pageLength: this.pageLength,
     processing: true,
-    serverSide: false, // Set this to true if you want to load data from server-side
-    // Other options...
-  
-    // Add the following options for search, pagination, and filtering:
+    serverSide: false,
     searching: false,
     lengthChange: true,
-    order: [[0, 'asc']], // Set the default sorting column and direction
-  
+    order: [[0, 'asc']],
     language: {
       paginate: {
         "first": "First",
@@ -257,7 +253,11 @@ ngOnInit(): void {
   
   editUser(user: any): void {
     console.log(user);
-    this.router.navigateByUrl('/updateApplicant');
+    this.router.navigateByUrl('/addCollege');
     // Redirect to the edit component or perform any other action
+  }
+
+  addCollege(){
+    this.router.navigateByUrl('/addCollege');
   }
 }

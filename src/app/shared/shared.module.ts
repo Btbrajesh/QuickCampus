@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 // https://angular.io/styleguide#!#04-10
@@ -11,6 +12,7 @@ import { FooterComponent } from './layout/footer/footer.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [],
   declarations: [
@@ -18,6 +20,8 @@ import { FooterComponent } from './layout/footer/footer.component';
     FooterComponent
   ],
   exports: [
+    HeaderComponent,
+    FooterComponent
   ],
 })
 
