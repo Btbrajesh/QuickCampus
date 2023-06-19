@@ -1,0 +1,19 @@
+.form-control {
+    margin: 5px;
+}
+
+.no_padding {
+    padding: 0;
+}
+
+.remove_button_class {
+    position: relative;
+}
+
+.timepicker .input-timepicker {
+    margin-top: 0;
+}
+
+.timepicker .input-group-addon {
+    padding: 6px 6px 6px 12px;
+}

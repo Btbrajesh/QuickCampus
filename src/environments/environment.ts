@@ -5,5 +5,5 @@ export const environment = {
     clientId: 'webApp',
     serviceBase: "/",
     mockBackend: false,
-    apiUrl: '',
+    apiUrl: 'http://quikcampusdev.etrueconcept.com/api',
   };

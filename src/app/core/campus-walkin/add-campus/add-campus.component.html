@@ -1,0 +1,256 @@
+<section class="main_content">
+    <div class="container">
+        <div class="content-wrapper">
+            <section class="content-header">
+                <h3>
+                    Add New Campus
+                </h3>
+            </section>
+            <section class="content">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="box">
+                            <div class="box-body">
+                                <form action="/Admin/Campus/AddCampus" enctype="multipart/form-data" id="CampusForm"
+                                    method="post" role="form" novalidate="novalidate"><input
+                                        name="__RequestVerificationToken" type="hidden"
+                                        value="KSIiRjFzvFqj1N0qAuphc7Bn9sTKvaH8AMFaKC4_66BRf2vUYplc6ZAdcx31S9_Abq4Q9WIIbxuTcw8JRQz8S7hpLCXG3-HKN2QwDDWH7Y81"><input
+                                        data-val="true" data-val-number="The field WalkInID must be a number."
+                                        data-val-required="The WalkInID field is required." id="WalkInID"
+                                        name="WalkInID" type="hidden" value="0">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2 padd_none">Campus Date &amp;
+                                                    Time*</label>
+                                                <div class="col-md-10">
+                                                    <input class="form-control datepicker" data-content="DateOfBirth*"
+                                                        data-toggle="popover" data-trigger="hover" data-val="true"
+                                                        data-val-date="The field WalkInDate must be a date."
+                                                        data-val-required="Date is required." id="txtCampusDate"
+                                                        maxlength="10" name="WalkInDate" placeholder="Campus Date*"
+                                                        type="text" value="">
+                                                    <span class="field-validation-valid" data-valmsg-for="WalkInDate"
+                                                        data-valmsg-replace="true"></span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2 padd_none">Title</label>
+                                                <div class="col-md-10">
+                                                    <textarea class="form-control" cols="20" data-val="true"
+                                                        data-val-required="Title is required." id="txtCampusDescription"
+                                                        maxlength="1500" name="Title" placeholder="Title" rows="2"
+                                                        style="margin-left: 0;margin-right: 0;"></textarea>
+                                                    <span class="field-validation-valid" data-valmsg-for="Title"
+                                                        data-valmsg-replace="true"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 padd_none">Address1</label>
+                                                <div class="col-md-8">
+                                                    <input class="form-control" data-content="Address1"
+                                                        data-toggle="popover" data-trigger="hover" id="txtAddress1"
+                                                        maxlength="1000" name="Address1" placeholder="Address1"
+                                                        type="text" value="">
+                                                    <span class="field-validation-valid" data-valmsg-for="Address1"
+                                                        data-valmsg-replace="true"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 padd_none">Address2</label>
+                                                <div class="col-md-8">
+                                                    <input class="form-control" data-content="Address2"
+                                                        data-toggle="popover" data-trigger="hover" id="txtAddress2"
+                                                        maxlength="100" name="Address2" placeholder="Address2"
+                                                        type="text" value="">
+                                                    <span class="field-validation-valid" data-valmsg-for="Address2"
+                                                        data-valmsg-replace="true"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 padd_none">City</label>
+                                                <div class="col-md-8">
+                                                    <input class="form-control" data-content="City"
+                                                        data-toggle="popover" data-trigger="hover" id="txtCity"
+                                                        maxlength="100" name="City" placeholder="City" type="text"
+                                                        value="">
+                                                    <span class="field-validation-valid" data-valmsg-for="City"
+                                                        data-valmsg-replace="true"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 padd_none">Country</label>
+                                                <div class="col-md-4">
+                                                    <select class="form-control" data-content="Select CountryID"
+                                                        data-toggle="popover" data-trigger="hover" data-val="true"
+                                                        data-val-number="The field CountryID must be a number."
+                                                        id="ddlCountryID" name="CountryID" onchange="FillState()">
+                                                        <option value="">Country</option>
+                                                        <option value="1">India</option>
+                                                    </select>
+                                                    <span class="field-validation-valid" data-valmsg-for="CountryID"
+                                                        data-valmsg-replace="true"></span>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <select class="form-control" data-content="Select State"
+                                                        data-toggle="popover" data-trigger="hover" data-val="true"
+                                                        data-val-number="The field StateID must be a number."
+                                                        id="ddlStateID" name="StateID"
+                                                        onchange="ShowHideAutoComplete()">
+                                                        <option value="">State</option>
+                                                    </select>
+                                                    <span class="field-validation-valid" data-valmsg-for="StateID"
+                                                        data-valmsg-replace="true"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="dvautocomplete" style="display: none;">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2 padd_none">Add College in
+                                                    WalkIn*</label>
+                                                <div class="col-md-8" id="divAutoCallege">
+                                                    <input type="hidden" id="hdnCollegeAutoId" value="0">
+                                                    <input type="text" id="txtAutoCallege"
+                                                        placeholder="Find College Name*" class="form-control"
+                                                        onblur="ResetHdnCollegeAuto()">
+                                                    <div id="msgContainer"></div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="input-group">
+                                                        <button name="AddCollege" value="AddCollege"
+                                                            class="btn btn-danger" type="button"
+                                                            onclick="return FillCollege()"><span>Add</span></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div id="divcollegeExamSchedule" class="row">
+
+
+                                        <script src="/Scripts/bootstrap-datepicker.js"></script>
+                                        <style>
+                                            #divcollegeExamSchedule {
+                                                padding: 0 9px 0 12px;
+                                            }
+
+                                            #divcollegeExamSchedule label {
+                                                line-height: 60px;
+                                            }
+
+                                            #divcollegeExamSchedule input[type="checkbox"] {
+                                                margin-top: 22px;
+                                            }
+
+                                            .row23 {
+                                                float: left;
+                                                width: 100%;
+                                                margin-bottom: 15px;
+                                            }
+
+                                            .row23 .col-lg-1 {
+                                                width: 10px;
+                                            }
+
+                                            .row23 .box {
+                                                width: 120px;
+                                            }
+
+                                            .row23 .collage_name {
+                                                width: 64%;
+                                            }
+
+                                            #divcollegeExamSchedule p {
+                                                margin-bottom: 0 !important;
+                                                line-height: 27px;
+                                                margin-left: 6px;
+                                            }
+                                        </style>
+                                        <hr>
+                                        <div class="">
+                                        </div>
+
+                                        <script>
+                                            $(document).ready(function () {
+                                                $('.datetimepicker').datetimepicker();
+                                                var date = new Date();
+                                                $('.input-timepicker').timepicker(
+                                                    {
+                                                        timeFormat: 'hh:mm p',
+                                                        change: function (time) {
+                                                            var element = $(this), text;
+                                                            var timepicker = element.timepicker();
+                                                            try {
+                                                                text = timepicker.format(time);
+                                                            }
+                                                            catch (err) {
+                                                                element.val('');
+                                                            }
+                                                        }
+                                                    });
+                                                if ($.isEmptyObject($('.input-timepicker').val())) {
+                                                    $('.input-timepicker').timepicker('setTime', new Date());
+                                                    $('.input-timepicker').timepicker({ 'scrollDefault': 'now' });
+                                                }
+
+
+                                                $('.dropdown-toggle').on("click, mouseover", function () {
+                                                    var dropbtn = $(this);
+                                                    var dropdowns = dropbtn.siblings('.dropdown-menu');
+                                                    dropdowns.slideToggle();
+                                                });
+
+
+                                            });
+                                        </script>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+
+                                                <div class="col-md-8">
+                                                    <button class="btn btn-danger" name="Add" value="Add"
+                                                        onclick="return ValidateForm(event)"
+                                                        type="submit"><span>Save</span></button>
+                                                    <a class="btn btn-default"
+                                                        href="/Admin/Campus/Manage?Length=6">Cancel</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="rows">
+        </div>
+
+    </div>
+    <!-- end:container -->
+</section>

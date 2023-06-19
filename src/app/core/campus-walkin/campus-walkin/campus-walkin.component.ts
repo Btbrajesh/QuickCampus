@@ -1,15 +1,15 @@
-import { Component, NgModule, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ApplicantService } from '../../applicant/applicant.service';
+import { Router } from '@angular/router';
 import { DataTableDirective } from 'angular-datatables';
 import { Subject } from 'rxjs';
-import { Router } from '@angular/router';
-import { ApplicantService } from './applicant.service';
 
 @Component({
-  selector: 'app-applicant',
-  templateUrl: './applicant.component.html',
-  styleUrls: ['./applicant.component.css']
+  selector: 'app-campus-walkin',
+  templateUrl: './campus-walkin.component.html',
+  styleUrls: ['./campus-walkin.component.css']
 })
-export class ApplicantComponent implements OnInit {
+export class CampusWalkinComponent implements OnInit{
 
   posts: any;
   @ViewChild(DataTableDirective, { static: false })
@@ -197,16 +197,15 @@ export class ApplicantComponent implements OnInit {
    
   ]
 
-  constructor(private applicantService: ApplicantService,private router: Router){
+  constructor(private service: ApplicantService,private router: Router){
   }
 
 ngOnInit(): void {
-  this.getApplicantList();
   this.dtOptions = {
     pagingType: 'full_numbers',
     pageLength: this.pageLength,
     processing: true,
-    serverSide: true,
+    serverSide: false,
     searching: false,
     lengthChange: true,
     order: [[0, 'asc']],
@@ -233,17 +232,9 @@ ngOnInit(): void {
   }
 }
 
-getApplicantList(){
-  this.applicantService.getApplicantList().subscribe(resp =>{
-      console.log(resp);
-  },err =>{
-    console.log("Error in applicant list",err);
-  })
-}
-
   users(): void {
-    this.applicantService
-      .getApplicantList()
+    this.
+    service.getApplicantList()
       .subscribe((response: any) => {
         this.allUsers = response.data;
         this.dtTrigger.next( this.allUsers);
@@ -262,8 +253,11 @@ getApplicantList(){
   
   editUser(user: any): void {
     console.log(user);
-    this.router.navigateByUrl('/updateApplicant');
+    this.router.navigateByUrl('/addCampus');
     // Redirect to the edit component or perform any other action
   }
 
+  addCollege(){
+    this.router.navigateByUrl('/addCampus');
+  }
 }
