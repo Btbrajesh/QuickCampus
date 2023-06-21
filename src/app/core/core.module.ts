@@ -1,5 +1,4 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
-import { throwIfAlreadyLoaded } from './module-import-guard';
 import { ApplicantComponent } from './applicant/applicant.component';
 import { CommonModule } from '@angular/common';
 import { DataTablesModule } from 'angular-datatables';

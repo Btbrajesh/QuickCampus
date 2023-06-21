@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
 import { DataTablesModule } from 'angular-datatables';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CoreRoutingModule } from './core/core.routing.module';
 
 
 @NgModule({
@@ -17,10 +19,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CoreRoutingModule,
+    SharedModule ,
     CommonModule,
     DataTablesModule,
     SharedModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
     CoreModule,
     FontAwesomeModule
   ],

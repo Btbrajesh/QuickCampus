@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { DataTableDirective } from 'angular-datatables';
 import { Subject } from 'rxjs';
 
+
 @Component({
   selector: 'app-campus-walkin',
   templateUrl: './campus-walkin.component.html',
@@ -208,7 +209,7 @@ ngOnInit(): void {
     serverSide: false,
     searching: false,
     lengthChange: true,
-    order: [[0, 'asc']],
+    paging:true,
     language: {
       paginate: {
         "first": "First",
@@ -242,10 +243,6 @@ ngOnInit(): void {
       });
   }
 
-  ngOnDestroy(): void {
-    this.dtTrigger.unsubscribe();
-  }
-
   toggleActive(user: any): void {
     user.isActive = !user.isActive;
     // Call your service method to update the user's active status
@@ -254,7 +251,7 @@ ngOnInit(): void {
   editUser(user: any): void {
     console.log(user);
     this.router.navigateByUrl('/addCampus');
-    // Redirect to the edit component or perform any other action
+    // Redirect to the add component or perform any other action
   }
 
   addCollege(){

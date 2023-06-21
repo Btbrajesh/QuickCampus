@@ -3,11 +3,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class AdminComponent implements OnInit {
+export class LoginComponent implements OnInit {
   loginForm!:FormGroup
 
   constructor(private formBuilder: FormBuilder,private route: ActivatedRoute,
@@ -15,7 +15,6 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit(): void {   
-
     this.loginForm = this.formBuilder.group({
       "username": ['', Validators.required],
       'password': ['',Validators.required]

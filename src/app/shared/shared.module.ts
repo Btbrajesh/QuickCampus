@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { MainLayoutComponent } from './main-layout/main-layout.component';
 
 
 // https://angular.io/styleguide#!#04-10
@@ -17,7 +18,8 @@ import { AppRoutingModule } from '../app-routing.module';
   providers: [],
   declarations: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    MainLayoutComponent
   ],
   exports: [
     HeaderComponent,
@@ -26,9 +28,4 @@ import { AppRoutingModule } from '../app-routing.module';
 })
 
 export class SharedModule {
-  static forRoot(): ModuleWithProviders<SharedModule> {
-    return {
-      ngModule: SharedModule,
-    };
-  }
 }

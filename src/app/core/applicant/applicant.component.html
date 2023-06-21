@@ -15,12 +15,12 @@
                 </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let user of userData">
-                <td>{{ user.name }}</td>
+            <tr *ngFor="let user of applicantList">
+                <td>{{ user.fullName }}</td>
                 <td>{{ user.collegeName }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.highestQualification }}</td>
-                <td>{{ user.phone }}</td>
+                <td>{{ user.emailAddress }}</td>
+                <td>{{ user.higestQualification }}</td>
+                <td>{{ user.phoneNumber }}</td>
                <td> 
                 <a (click)="editUser(user)" class="action-link"><i class="fa fa-edit"></i></a>
                 <a (click)="toggleActive(user)" [ngClass]="{ 'active-link': user.isActive, 'inactive-link': !user.isActive }">{{ user.isActive ? 'Active' : 'Inactive' }}</a>

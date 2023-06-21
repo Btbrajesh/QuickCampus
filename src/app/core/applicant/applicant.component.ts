@@ -22,6 +22,7 @@ export class ApplicantComponent implements OnInit {
   dtInstance: any;
   isLength!: boolean;
   allUsers: any = [];
+  applicantList :any[]=[];
   userData:any =[
     {
       "id": 1,
@@ -235,7 +236,13 @@ ngOnInit(): void {
 
 getApplicantList(){
   this.applicantService.getApplicantList().subscribe(resp =>{
-      console.log(resp);
+    console.log(resp);
+    if(resp.isSuccess){
+      this.applicantList = resp.data;
+      this.applicantList.map((applicant) => {
+        applicant.fullName = `${applicant.firstName} ${applicant.lastName}`;
+      });
+    }
   },err =>{
     console.log("Error in applicant list",err);
   })
