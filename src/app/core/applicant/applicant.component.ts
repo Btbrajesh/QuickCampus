@@ -199,6 +199,15 @@ export class ApplicantComponent implements OnInit {
   ]
 
   constructor(private applicantService: ApplicantService,private router: Router){
+    setTimeout(()=>{   
+      $('#datatableexample').DataTable( {
+        pagingType: 'full_numbers',
+        pageLength: 10,
+        processing: true,
+        lengthMenu : [5, 10, 25]
+    } );
+    }, 1);
+  
   }
 
 ngOnInit(): void {
@@ -222,9 +231,6 @@ ngOnInit(): void {
       infoEmpty: "0 to 0 of 0",
     },
   };
-  
-
-  this.users();
 
   if (this.dtElement && this.dtElement.dtInstance) {
     // Call the DataTables API to reload the data
@@ -242,21 +248,12 @@ getApplicantList(){
       this.applicantList.map((applicant) => {
         applicant.fullName = `${applicant.firstName} ${applicant.lastName}`;
       });
+      
     }
   },err =>{
     console.log("Error in applicant list",err);
   })
 }
-
-  users(): void {
-    this.applicantService
-      .getApplicantList()
-      .subscribe((response: any) => {
-        this.allUsers = response.data;
-        this.dtTrigger.next( this.allUsers);
-        console.log(this.allUsers);
-      });
-  }
 
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
@@ -269,8 +266,9 @@ getApplicantList(){
   
   editUser(user: any): void {
     console.log(user);
-    this.router.navigateByUrl('/updateApplicant');
-    // Redirect to the edit component or perform any other action
+  
+    const url = `/updateApplicant/${user.applicantID}`;
+    this.router.navigateByUrl(url);
   }
 
 }

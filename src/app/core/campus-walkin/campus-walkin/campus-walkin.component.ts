@@ -3,6 +3,7 @@ import { ApplicantService } from '../../applicant/applicant.service';
 import { Router } from '@angular/router';
 import { DataTableDirective } from 'angular-datatables';
 import { Subject } from 'rxjs';
+import { CampusWalkInService } from '../campuswalkin.service';
 
 
 @Component({
@@ -23,182 +24,8 @@ export class CampusWalkinComponent implements OnInit{
   dtInstance: any;
   isLength!: boolean;
   allUsers: any = [];
-  userData:any =[
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-   
-  ]
 
-  constructor(private service: ApplicantService,private router: Router){
+  constructor(private campusWalkInService: CampusWalkInService,private router: Router){
   }
 
 ngOnInit(): void {
@@ -235,7 +62,7 @@ ngOnInit(): void {
 
   users(): void {
     this.
-    service.getApplicantList()
+    campusWalkInService.getCampusWalkInList()
       .subscribe((response: any) => {
         this.allUsers = response.data;
         this.dtTrigger.next( this.allUsers);

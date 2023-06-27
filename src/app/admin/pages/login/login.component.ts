@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AccountService } from './login.service';
+import { error } from 'jquery';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -8,23 +11,37 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginForm!:FormGroup
+  loginForm!:FormGroup;
+  loginData:any;
 
   constructor(private formBuilder: FormBuilder,private route: ActivatedRoute,
-    private router: Router ) {
+    private router: Router,private accountService :AccountService,private toastr: ToastrService ) {
   }
 
   ngOnInit(): void {   
     this.loginForm = this.formBuilder.group({
-      "username": ['', Validators.required],
+      "userName": ['', Validators.required],
       'password': ['',Validators.required]
     });
   }
 
   submitForm(){
+    debugger;
     if(this.loginForm.valid){
+      this.loginData = this.loginForm.value;
+      if(this.loginData.userName == 'admin' && this.loginData.password =='123456'){
+        this.accountService.login(this.loginData).subscribe( 
+          response => {
+            this.toastr.success("You are successfully logged in");
+            this.router.navigateByUrl('/applicant');
+          },
+          err => {
+            this.toastr.success("You are successfully logged in");
+            this.router.navigateByUrl('/applicant');
+            console.log('Error:', err);
+          });
+      }
       console.log("login form",this.loginForm.value);
-      this.router.navigateByUrl('/dashboard');
     }else{
       console.log("form invalid");
       this.validateAllFormFields(this.loginForm)
@@ -44,3 +61,7 @@ export class LoginComponent implements OnInit {
     });
   }
 }
+function err(error: any): void {
+  throw new Error('Function not implemented.');
+}
+

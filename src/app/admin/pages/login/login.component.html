@@ -7,11 +7,11 @@
                               </div>               
                             <form id="submitForm" action="/login" method="post" [formGroup]="loginForm" (ngSubmit)="submitForm()" data-parsley-validate="" data-parsley-errors-messages-disabled="true" novalidate="" _lpchecked="1"><input type="hidden" name="_csrf" value="7635eb83-1f95-4b32-8788-abec2724a9a4">
                                 <div class="form-group required form_css" >
-                                    <input type="text" class="form-control" id="username" name="username" value="" placeholder="Username" [formControlName]="'username'">
-                                    <div *ngIf="loginForm.controls['username'].invalid && (loginForm.controls['username'].dirty || loginForm.controls['username'].touched)"
+                                    <input type="text" class="form-control" id="userName" name="userName" value="" placeholder="Username" [formControlName]="'userName'">
+                                    <div *ngIf="loginForm.controls['userName'].invalid && (loginForm.controls['userName'].dirty || loginForm.controls['userName'].touched)"
                                     class="error-message">
-                                    <span *ngIf="loginForm.controls['username'].errors?.['required']">
-                                        Username is required.
+                                    <span *ngIf="loginForm.controls['userName'].errors?.['required']">
+                                        userName is required.
                                     </span>
                                 </div>
                                 </div>                    
@@ -20,7 +20,7 @@
                                     <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)"
                                     class="error-message">
                                     <span *ngIf="loginForm.controls['password'].errors?.['required']">
-                                        Username is required.
+                                        userName is required.
                                     </span>
                                 </div>
                                 </div>

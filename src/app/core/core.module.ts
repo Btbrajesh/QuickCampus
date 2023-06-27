@@ -12,6 +12,7 @@ import { AddCollegeComponent } from './add-college/add-college.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CampusWalkinComponent } from './campus-walkin/campus-walkin/campus-walkin.component';
 import { AddCampusComponent } from './campus-walkin/add-campus/add-campus.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
     imports: [
@@ -20,7 +21,8 @@ import { AddCampusComponent } from './campus-walkin/add-campus/add-campus.compon
         HttpClientModule,
         FontAwesomeModule,
         ReactiveFormsModule,
-        SharedModule
+        SharedModule,
+        ToastrModule
     ],
 
     providers: [

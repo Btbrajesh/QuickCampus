@@ -15,4 +15,12 @@ export class ApplicantService {
     return this.http.get<any>(environment.apiUrl +'/Applicant/Manage');
   }
 
+  getApplicantById(applicantId:number): Observable<any>{
+    return this.http.get<any>(environment.apiUrl +'/Applicant/GetApplicantById?Id='+applicantId);
+  }
+
+  updateApplicant(applicantId:number,applicant:any): Observable<any>{
+    return this.http.post<any>(environment.apiUrl +'/Applicant/EditApplicant?ApplicantId='+applicantId,applicant);
+  }
+
 }

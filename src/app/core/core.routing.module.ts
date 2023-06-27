@@ -11,10 +11,10 @@ import { UpdateApplicantComponent } from './update-applicant/update-applicant.co
 const routes: Routes = [
   {
     path: '',
-    component: MainLayoutComponent, // Use the MainLayoutComponent as the layout for authenticated pages
+    component: MainLayoutComponent,
     children: [
        {path: 'applicant',component: ApplicantComponent},
-       {path : 'updateApplicant', component:UpdateApplicantComponent},
+       {path : 'updateApplicant/:Id', component:UpdateApplicantComponent},
        {path: 'college',component:CollegeComponent},
        {path : 'addCollege',component:AddCollegeComponent},
        {path: 'campus',component:CampusWalkinComponent},
