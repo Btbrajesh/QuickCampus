@@ -1,4 +1,4 @@
-import { Component, NgModule, OnInit, ViewChild } from '@angular/core';
+import { Component, NgModule, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { DataTableDirective } from 'angular-datatables';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
@@ -9,11 +9,11 @@ import { ApplicantService } from './applicant.service';
   templateUrl: './applicant.component.html',
   styleUrls: ['./applicant.component.css']
 })
-export class ApplicantComponent implements OnInit {
+export class ApplicantComponent implements OnInit,OnDestroy  {
 
   posts: any;
   @ViewChild(DataTableDirective, { static: false })
-  dtElement!: DataTableDirective;
+  datatableElement: any = DataTableDirective;
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
   dtColumns: DataTables.ColumnSettings[] = [];
@@ -23,221 +23,13 @@ export class ApplicantComponent implements OnInit {
   isLength!: boolean;
   allUsers: any = [];
   applicantList :any[]=[];
-  userData:any =[
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "collegeName": "Bret",
-      "email": "Sincere@april.biz",
-      "highestQualification": 'MCA',
-      "phone": "6489346345",
-       "Action": "InActive"
-    },
-   
-  ]
-
+ 
   constructor(private applicantService: ApplicantService,private router: Router){
-    setTimeout(()=>{   
-      $('#datatableexample').DataTable( {
-        pagingType: 'full_numbers',
-        pageLength: 10,
-        processing: true,
-        lengthMenu : [5, 10, 25]
-    } );
-    }, 1);
-  
+   
   }
 
 ngOnInit(): void {
   this.getApplicantList();
-  this.dtOptions = {
-    pagingType: 'full_numbers',
-    pageLength: this.pageLength,
-    processing: true,
-    serverSide: true,
-    searching: false,
-    lengthChange: true,
-    order: [[0, 'asc']],
-    language: {
-      paginate: {
-        "first": "First",
-        "last": "Last",
-        "next": "Next",
-        "previous": "Previous",
-      },
-      info: "_START_ to _END_ of _TOTAL_",
-      infoEmpty: "0 to 0 of 0",
-    },
-  };
-
-  if (this.dtElement && this.dtElement.dtInstance) {
-    // Call the DataTables API to reload the data
-    this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
-      dtInstance.ajax.reload();
-    });
-  }
 }
 
 getApplicantList(){
@@ -248,16 +40,15 @@ getApplicantList(){
       this.applicantList.map((applicant) => {
         applicant.fullName = `${applicant.firstName} ${applicant.lastName}`;
       });
-      
     }
   },err =>{
     console.log("Error in applicant list",err);
   })
 }
 
-  ngOnDestroy(): void {
-    this.dtTrigger.unsubscribe();
-  }
+ngOnDestroy(): void {
+  this.dtTrigger.unsubscribe();
+}
 
   toggleActive(user: any): void {
     user.isActive = !user.isActive;
@@ -265,8 +56,6 @@ getApplicantList(){
   }
   
   editUser(user: any): void {
-    console.log(user);
-  
     const url = `/updateApplicant/${user.applicantID}`;
     this.router.navigateByUrl(url);
   }
