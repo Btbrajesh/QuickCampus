@@ -13,9 +13,6 @@ constructor(private http: HttpClient) {
 }
 
 login(loginData:any): Observable<any> {
-    debugger;
-    const loginurl = this.http.post<any>(environment.apiUrl +'Account/AdminLogin',loginData);
-    console.log(loginurl);
     return this.http.post(environment.apiUrl +'/Account/AdminLogin',loginData);
   }
 

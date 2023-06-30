@@ -15,6 +15,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { fakeBackendProvider } from './_helpers/fake-backend';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { ErrorInterceptor } from './_helpers/error.interceptor';
+import { AdminRoutingModule } from './admin/admin.routing.module';
 
 
 @NgModule({
@@ -26,11 +27,11 @@ import { ErrorInterceptor } from './_helpers/error.interceptor';
     AppRoutingModule,
     CoreRoutingModule, 
     DataTablesModule, 
+    AdminRoutingModule,
     BrowserAnimationsModule,
     SharedModule ,
     CommonModule,
     DataTablesModule,
-    SharedModule,
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,

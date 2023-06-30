@@ -8,10 +8,12 @@ export class UserService {
     constructor(private http: HttpClient) { }
 
     getAll() {
-        return this.http.get<User[]>(`${environment.apiUrl}/users`);
+        debugger;
+        return this.http.get<any[]>(`${environment.apiUrl}/users`);
     }
 
     getById(id: number) {
-        return this.http.get<User>(`${environment.apiUrl}/users/${id}`);
+        debugger;
+        return this.http.get<any>(`${environment.apiUrl}/users`);
     }
 }
